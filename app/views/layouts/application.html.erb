@@ -10,6 +10,20 @@
   </head>
 
   <body>
-    <%= yield %>
+    
+    <%# Flash messages %>
+    <% if flash[:notice] %>
+      <div class="notification is-info">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="notification is-danger">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+
+    <section class="section">
+      <%= yield %>
+    </section>
   </body>
 </html>
