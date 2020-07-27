@@ -27,10 +27,14 @@ class TweetsController < ApplicationController
   def create
     @tweets = Tweet.all.desc
     @tweet = Tweet.new(tweet_params)
-    if @tweet.save
-      redirect_to root_path
-    else
-      render "index"
+    respond_to do |format|
+      if @tweet.save
+        format.html { redirect_to root_path, notice: 'Tweet was successfully created.' }
+        format.json { render :index, status: :ok, location: @tweet }
+      else
+        format.html { render :index }
+        format.json { render json: @tweet.errors, status: :unprocessable_entity }
+      end
     end
   end
 

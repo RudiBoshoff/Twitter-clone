@@ -1,4 +1,4 @@
-<div class="form mb-5">
+<div class="box">
 <%= form_with(model: tweet, local: true) do |form| %>
   <% if tweet.errors.any? %>
     <div class="notification is-danger is-light">
@@ -14,7 +14,7 @@
   <div class="field">
     <%= form.label :post, "Tweet about it", class: "label" %>
     <div class="control">
-      <%= form.text_area :post, class:"textarea is-info", rows: "2", cols: "30", placeholder: "Create a new tweet...", maxlength: "150" %>
+      <%= form.text_area :post, class:"textarea is-info", rows: "2", cols: "60", placeholder: "Create a new tweet...", maxlength: "150" %>
     </div>
   </div>
   <div class="field">

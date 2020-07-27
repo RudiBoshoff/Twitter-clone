@@ -1,12 +1,14 @@
 
 <div class="container">
-  <div class="columns">
+  <div class="columns is-8 is-variable">
     <div class="column is-one-quarter">
         <%= render 'trends' %>
     </div>
     <div class="column is-half">
       <%= render 'tweets/form', tweet: @tweet %>
-      <%= render @tweets %>
+      <div class="panel">
+        <%= render @tweets %>
+      </div>
     </div>
     <div class="column is-one-quarter">
       <%= render 'recommended' %>
