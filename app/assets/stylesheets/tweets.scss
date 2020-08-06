@@ -6,3 +6,21 @@
 .field_with_errors > textarea {
   border-color: red !important;
 }
+
+.tooltip {
+  position: absolute;
+  bottom: 20px;
+  padding: 0.5em;
+  border-radius: 10px;
+  background-color: #3298dc;
+  color: white;
+  visibility: hidden;
+}
+
+.level-item:hover .tooltip {
+  visibility: visible;
+}
+
+.level-item {
+  position: relative;
+}
