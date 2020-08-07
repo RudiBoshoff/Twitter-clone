@@ -1,17 +1,19 @@
 
-<div class="container">
-  <div class="columns is-8 is-variable">
-    <div class="column is-one-quarter">
-        <%= render 'trends' %>
-    </div>
-    <div class="column is-half">
-      <%= render 'tweets/form', tweet: @tweet %>
-      <div class="panel">
-        <%= render @tweets %>
-      </div>
-    </div>
-    <div class="column is-one-quarter">
-      <%= render 'recommended', users: @users %>
+<div class="columns is-multiline is-centered is-desktop">
+  <div class="column is-one-third-desktop is-one-quarter-fullhd">
+    <% if user_signed_in? %>
+      <%= render 'profile' %> 
+    <% else %>
+      <%= render 'trends' %>
+    <% end %>
+  </div>
+  <div class="column is-one-third-desktop is-one-quarter-fullhd recommended">
+    <%= render 'recommended', users: @users %>
+  </div>
+  <div class="column">
+    <%= render 'tweets/form', tweet: @tweet %>
+    <div class="panel">
+      <%= render @tweets %>
     </div>
   </div>
 </div>

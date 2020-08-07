@@ -7,36 +7,32 @@
     </figure>
     <div class="media-content">
       <div class="content">
-        <div class="media">
-          <div class="media-left">
-            <%= link_to user_tweets_path(tweet.user) do %>
-              <strong><%= tweet.user.name %></strong>
-            <% end %>
-          </div>
-
-          <div class="media-right">
-            <small><%= time_ago_in_words(tweet.created_at) %></small>
-          </div>
-        </div>
+        <%= link_to user_tweets_path(tweet.user) do %>
+          <strong><%= tweet.user.name.titleize %></strong>
+        <% end %>
           <small>@<%= tweet.user.username %></small> 
           <br>
           <%= tweet.post %>
-      </div>
-
-      <% if user_signed_in? && current_user.id == tweet.user.id%>  
+          <p class="is-size-7 has-text-grey"><%= time_ago_in_words(tweet.created_at) %></p>
         <nav class="level is-mobile">
           <div class="level-left">
-            <%= link_to edit_tweet_path(tweet), class:"level-item" do %>
-              <span class="tooltip">Edit</span>
-              <span class="icon is-small"><i class="fas fa-edit" aria-hidden="true"></i></span>
-            <% end %>
-            <%= link_to tweet_path(tweet), class:"level-item", method: "delete", data: { confirm: "Delete tweet?" } do %>
-              <span class="tooltip">Delete</span>
-              <span class="icon is-small"><i class="fa fa-trash" aria-hidden="true"></i></span>
+            <% if user_signed_in? && current_user.id == tweet.user.id%>  
+              <%= link_to edit_tweet_path(tweet), class:"level-item" do %>
+                <span class="tooltip">Edit</span>
+                <span class="icon is-small"><i class="fas fa-edit" aria-hidden="true"></i></span>
+              <% end %>
+              <%= link_to tweet_path(tweet), class:"level-item", method: "delete", data: { confirm: "Delete tweet?" } do %>
+                <span class="tooltip">Delete</span>
+                <span class="icon is-small"><i class="fa fa-trash" aria-hidden="true"></i></span>
+              <% end %>
             <% end %>
           </div>
+          <div class="level-right">
+            
+          </div>
         </nav>
-      <% end %>
+      </div>
     </div>
+    
   </article>
 </div>

@@ -17,7 +17,7 @@
               <div class="content">
                 <div class="media">
                   <div class="media-left">
-                  <strong><%= tweet.user.name %></strong>
+                  <strong><%= tweet.user.name.titleize %></strong>
                   </div>
                   <div class="media-right">
                     <small><%= time_ago_in_words(tweet.created_at) %></small>

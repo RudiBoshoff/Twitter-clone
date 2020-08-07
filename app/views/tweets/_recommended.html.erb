@@ -1,20 +1,44 @@
 <nav class="panel is-info">
   <p class="panel-heading">Who to Follow</p>
-  <% users.sample(3).each do |user| %>
-  <div class="panel-block">
-    <div class="level">
-      <div class="mr-2 image">
-          <img class="is-rounded" src="https://bulma.io/images/placeholders/32x32.png">
-      </div>
-      <div class="level-item">
-        <div>
-          <strong>
-          <%= link_to user.name.titleize, user_tweets_path(user) %>
-          </strong>
-          <small>@<%= user.username%></small>
+  <% if current_user %>
+      <% users.reject{ |user| user.id == current_user.id }.sample(3).each do |user| %>
+      <div class="panel-block">
+          <div class="level is-mobile">
+            <div class="level-item">
+              <figure class="image is-32x32">
+                  <img class="is-rounded" src="https://bulma.io/images/placeholders/32x32.png">
+              </figure>
+            </div>
+            <div class="level-item">
+              <div>
+                <strong>
+                <%= link_to user.name.titleize, user_tweets_path(user) %>
+                </strong>
+                <small>@<%= user.username%></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  <% else %>
+    <% users.sample(3).each do |user| %>
+    <div class="panel-block">
+      <div class="level is-mobile">
+        <div class="level-item">
+          <figure class="image is-32x32">
+              <img class="is-rounded" src="https://bulma.io/images/placeholders/32x32.png">
+          </figure>
+        </div>
+        <div class="level-item">
+          <div>
+            <strong>
+            <%= link_to user.name.titleize, user_tweets_path(user) %>
+            </strong>
+            <small>@<%= user.username%></small>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <% end %>
   <% end %>
 </nav>
