@@ -12,4 +12,12 @@ TODO:
   1. Incorporate user follows, likes and post view counts.
   2. Create a working trend section to show users' posts that have a lot of likes.
   3. testing
+  4. gravatar images instead of stock images
 
+GEMS:
+  1. Devise
+  2. Bulma
+  3. Gravatar
+  4. Better-errors
+  5. Guard
+  6. Guard-livereload
